@@ -1,0 +1,33 @@
+{{jwt}} = 
+
+### User Create
+POST http://localhost:3000/users
+
+### Session Create
+POST http://localhost:3000/sessions 
+Content-Type: application/json
+
+{
+  ""
+}
+
+### Room Index
+GET http://localhost:3000/rooms
+Content-Type: application/json
+
+
+### Room Show
+GET http://localhost:3000/rooms/1
+Content-Type: application/json
+
+### Room Create
+POST http://localhost:3000/rooms
+
+### Room Update
+PATCH http://localhost:3000/rooms/2
+Content-Type: application/json
+Authorization: 
+
+### Room Delete
+DELETE http://localhost:3000/rooms/1
+
