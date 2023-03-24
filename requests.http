@@ -1,0 +1,43 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk3MDkzMjB9.hfTktpdnI0lbOHFA5kBU6vQwiEeqaVko6W9FggGdQlc
+
+### User Create
+POST http://localhost:3000/users.json 
+Content-Type: application/json
+
+{
+  "name": "Aakash",
+  "email": "aakash@test.com",
+  "password": "password",
+  "image": "user_image.jpg"
+}
+
+### Session Create
+POST http://localhost:3000/sessions.json 
+Content-Type: application/json
+
+{
+  "email": "aakash@test.com",
+  "password": "password"
+}
+
+### Room Index
+GET http://localhost:3000/rooms
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### Room Show
+GET http://localhost:3000/rooms/1
+Content-Type: application/json
+
+### Room Create
+POST http://localhost:3000/rooms
+
+### Room Update
+PATCH http://localhost:3000/rooms/2
+Content-Type: application/json
+Authorization: 
+
+### Room Delete
+DELETE http://localhost:3000/rooms/1
+

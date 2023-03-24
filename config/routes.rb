@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/rooms" => "rooms#index"
-
-  get "/rooms/:id" => "rooms#show"
+  resources :rooms
+  resources :users
+  resources :sessions
 end
