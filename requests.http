@@ -27,17 +27,30 @@ Authorization: Bearer {{jwt}}
 
 
 ### Room Show
-GET http://localhost:3000/rooms/1
+GET http://localhost:3000/rooms/1.json
 Content-Type: application/json
 
 ### Room Create
-POST http://localhost:3000/rooms
+POST http://localhost:3000/rooms.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "user_id": 1,
+  "address": "14 Test Rd.",
+  "city": "Your City",
+  "state": "Your State",
+  "price": 200,
+  "description": "King Suite",
+  "home_type": "single family",
+  "room"
+}
 
 ### Room Update
-PATCH http://localhost:3000/rooms/2
+PATCH http://localhost:3000/rooms/2.json
 Content-Type: application/json
-Authorization: 
+Authorization: Bearer {{jwt}}
 
 ### Room Delete
-DELETE http://localhost:3000/rooms/1
+DELETE http://localhost:3000/rooms/1.json
 

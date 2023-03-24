@@ -1,4 +1,9 @@
 class RoomsController < ApplicationController
+  def index
+    @rooms = Room.all
+    render json: @rooms.as_json
+  end
+  
   def create
     @room = Room.new(
       user_id: params[:user_id],
