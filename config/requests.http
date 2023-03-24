@@ -1,0 +1,7 @@
+### Rooms Index
+GET http://localhost:3000/rooms
+Content-Type: application/json
+
+### Rooms Show
+GET http://localhost:3000/rooms/1
+Content-Type: application/json
