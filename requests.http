@@ -1,19 +1,29 @@
-{{jwt}} = 
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk3MDkzMjB9.hfTktpdnI0lbOHFA5kBU6vQwiEeqaVko6W9FggGdQlc
 
 ### User Create
-POST http://localhost:3000/users
-
-### Session Create
-POST http://localhost:3000/sessions 
+POST http://localhost:3000/users.json 
 Content-Type: application/json
 
 {
-  ""
+  "name": "Aakash",
+  "email": "aakash@test.com",
+  "password": "password",
+  "image": "user_image.jpg"
+}
+
+### Session Create
+POST http://localhost:3000/sessions.json 
+Content-Type: application/json
+
+{
+  "email": "aakash@test.com",
+  "password": "password"
 }
 
 ### Room Index
 GET http://localhost:3000/rooms
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 
 ### Room Show
