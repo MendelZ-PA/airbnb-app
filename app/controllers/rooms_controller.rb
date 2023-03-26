@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_admin, except: [:index, :show]
+
   def index
     @rooms = Room.all
     render json: @rooms.as_json
@@ -31,7 +33,7 @@ class RoomsController < ApplicationController
   end
 
   def update
-    @room = Room.find_by(id: params[:id])
+    @room = current_user.rooms.find_by(id: params[:id])
     @room.update(
       price: params[:price] || @room.price,
       description: params[:description] || @room.description,
@@ -46,7 +48,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = Room.find_by(id: params[:id])
+    @room = current_user.rooms.find_by(id: params[:id])
     @room.destroy
     render json: { message: "Succesfully deleted the room!" }
   end
