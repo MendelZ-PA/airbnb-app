@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk3MDkzMjB9.hfTktpdnI0lbOHFA5kBU6vQwiEeqaVko6W9FggGdQlc
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk5Mjc2NTF9.9xFedkH_LcDF0ueA69-Kxolb8hAju_zu5UrWPZ9fRMo
 
 ### User Create
 POST http://localhost:3000/users.json 
@@ -27,17 +27,33 @@ Authorization: Bearer {{jwt}}
 
 
 ### Room Show
-GET http://localhost:3000/rooms/1
+GET http://localhost:3000/rooms/1.json
 Content-Type: application/json
 
 ### Room Create
-POST http://localhost:3000/rooms
+POST http://localhost:3000/rooms.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "user_id": 1,
+  "address": "14 Test Rd.",
+  "city": "Your City",
+  "state": "Your State",
+  "price": 200.00,
+  "description": "King Suite",
+  "home_type": "single family",
+  "room_type": "1 King Bed",
+  "total_occupancy": 3,
+  "total_bedrooms": 1,
+  "total_bathrooms": 1
+}
 
 ### Room Update
-PATCH http://localhost:3000/rooms/2
+PATCH http://localhost:3000/rooms/2.json
 Content-Type: application/json
-Authorization: 
+Authorization: Bearer {{jwt}}
 
 ### Room Delete
-DELETE http://localhost:3000/rooms/1
+DELETE http://localhost:3000/rooms/1.json
 
