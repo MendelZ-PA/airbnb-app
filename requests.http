@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzk5MzI1ODd9.HBCVTWncwAJiMVn5xx4x_cVJmb4UM5mDbXBKkLJrrrg
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzk5MzYzMzZ9.MfsYgrGgQH_VLBwc5E9uQmK-7j4BarNe1MnK9-1cAEA
 
 ### User Create
 POST http://localhost:3000/users.json 
@@ -92,8 +92,8 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
-### Review Show
-GET http://localhost:3000/reviews/1.json
+### Review Show (One Reservation)
+GET http://localhost:3000/reviews/4.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -109,17 +109,18 @@ Authorization: Bearer {{jwt}}
 }
 
 ### Review Update
-PATCH http://localhost:3000/reviews/2.json
+PATCH http://localhost:3000/reviews/4.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
+  "reservation_id": 2,
   "rating": 1.5,
   "comment": "could be worse"
 }
 
 ### Review Delete
-DELETE http://localhost:3000/reviews/2.json
+DELETE http://localhost:3000/reviews/4.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
