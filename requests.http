@@ -1,3 +1,4 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk5MzM5NTd9.5okqFJ1gtYB1TvvICdEhhtH1JJhUeMvcRPcgKUl1X-Y
 @jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzk5MzYzMzZ9.MfsYgrGgQH_VLBwc5E9uQmK-7j4BarNe1MnK9-1cAEA
 
 ### User Create
@@ -7,8 +8,19 @@ Content-Type: application/json
 {
   "name": "Mendel",
   "email": "mendel@test.com",
+  "name": "Aakash",
+  "email": "aakash@test.com",
   "password": "password",
   "image": "user_image.jpg"
+}
+
+### Users Update
+PATCH http://localhost:3000/users/2.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "admin":true
 }
 
 ### Session Create
@@ -37,10 +49,10 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "address": "16 Test Rd.",
+  "address": "15 Test Rd.",
   "city": "Your City",
   "state": "Your State",
-  "price": 400.00,
+  "price": 200.00,
   "description": "King Suite",
   "home_type": "single family",
   "room_type": "1 King Bed",
@@ -50,16 +62,18 @@ Authorization: Bearer {{jwt}}
 }
 
 ### Room Update
-PATCH http://localhost:3000/rooms/5.json
+PATCH http://localhost:3000/rooms/6.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "price": 450
+  "description": "new description"
 }
 
 ### Room Delete
-DELETE http://localhost:3000/rooms/5.json
+DELETE http://localhost:3000/rooms/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ### Create a Reservation
 POST http://localhost:3000/reservations.json
@@ -70,6 +84,8 @@ Authorization: Bearer {{jwt}}
   "room_id":1,
   "start_date":20230325,
   "end_date":20230328
+  "start_date":20220120,
+  "end_date":20220210
 }
 
 ### Reservation Delete
@@ -82,7 +98,7 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### Show one reservation
-GET http://localhost:3000/reservations/2.json
+GET http://localhost:3000/reservations/4.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 

@@ -2,12 +2,12 @@ class ReservationsController < ApplicationController
   before_action :authenticate_user
 
   def index
-    @reservations = Reservation.all
+    @reservations = current_user.reservations
     render json: @reservations.as_json
   end
 
   def show
-    @reservation = Reservation.find_by(id: params[:id])
+    @reservation = current_user.reservations.find_by(id: params[:id])
     render json: @reservation.as_json
   end
 
@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    @reservation = Reservation.find_by(id: params[:id])
+    @reservation = current_user.reservations.find_by(id: params[:id])
     @reservation.destroy
     render json: { message: "Succesfully deleted the reservation!" }
   end
