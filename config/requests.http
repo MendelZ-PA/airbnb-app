@@ -2,6 +2,18 @@
 GET http://localhost:3000/rooms
 Content-Type: application/json
 
+### Rooms Create
+
 ### Rooms Show
 GET http://localhost:3000/rooms/1
+Content-Type: application/json
+
+### Reviews Index
+GET http://localhost:3000/reviews
+Content-Type: application/json
+
+### Reviews Create
+
+### Reviews Show
+GET http://localhost:3000/reviews/1
 Content-Type: application/json

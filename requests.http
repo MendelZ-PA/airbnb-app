@@ -29,6 +29,7 @@ Authorization: Bearer {{jwt}}
 ### Room Show
 GET http://localhost:3000/rooms/1.json
 Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ### Room Create
 POST http://localhost:3000/rooms.json
@@ -56,4 +57,37 @@ Authorization: Bearer {{jwt}}
 
 ### Room Delete
 DELETE http://localhost:3000/rooms/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
+### Review Index
+GET http://localhost:3000/reviews
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### Review Show
+GET http://localhost:3000/reviews/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Review Create
+POST http://localhost:3000/reviews.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "reservation_id": 1,
+  "rating": 5.0,
+  "comment": "I had my most enjoyable vacation stay, conveniently located, I'd definately recommend it to "
+}
+
+### Room Update
+PATCH http://localhost:3000/rooms/2.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Room Delete
+DELETE http://localhost:3000/rooms/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
