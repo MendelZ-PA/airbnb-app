@@ -1,12 +1,12 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk5Mjc2NTF9.9xFedkH_LcDF0ueA69-Kxolb8hAju_zu5UrWPZ9fRMo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2Nzk5MzI1ODd9.HBCVTWncwAJiMVn5xx4x_cVJmb4UM5mDbXBKkLJrrrg
 
 ### User Create
 POST http://localhost:3000/users.json 
 Content-Type: application/json
 
 {
-  "name": "Aakash",
-  "email": "aakash@test.com",
+  "name": "Mendel",
+  "email": "mendel@test.com",
   "password": "password",
   "image": "user_image.jpg"
 }
@@ -16,18 +16,18 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "aakash@test.com",
+  "email": "mendel@test.com",
   "password": "password"
 }
 
 ### Room Index
-GET http://localhost:3000/rooms
+GET http://localhost:3000/rooms.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
 ### Room Show
-GET http://localhost:3000/rooms/1.json
+GET http://localhost:3000/rooms/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -37,11 +37,10 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "user_id": 1,
-  "address": "14 Test Rd.",
+  "address": "16 Test Rd.",
   "city": "Your City",
   "state": "Your State",
-  "price": 200.00,
+  "price": 400.00,
   "description": "King Suite",
   "home_type": "single family",
   "room_type": "1 King Bed",
@@ -51,12 +50,39 @@ Authorization: Bearer {{jwt}}
 }
 
 ### Room Update
-PATCH http://localhost:3000/rooms/2.json
+PATCH http://localhost:3000/rooms/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
+{
+  "price": 450
+}
+
 ### Room Delete
-DELETE http://localhost:3000/rooms/1.json
+DELETE http://localhost:3000/rooms/5.json
+
+### Create a Reservation
+POST http://localhost:3000/reservations.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "room_id":1,
+  "start_date":20230325,
+  "end_date":20230328
+}
+
+### Reservation Delete
+DELETE http://localhost:3000/reservations/2.json
+Authorization: Bearer {{jwt}}
+
+### Reservations Index
+GET http://localhost:3000/reservations.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Show one reservation
+GET http://localhost:3000/reservations/2.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -77,17 +103,23 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "reservation_id": 1,
-  "rating": 5.0,
-  "comment": "I had my most enjoyable vacation stay, conveniently located, I'd definately recommend it to "
+  "reservation_id": 2,
+  "rating": 1.0,
+  "comment": "HATED THIS PLACE."
 }
 
-### Room Update
-PATCH http://localhost:3000/rooms/2.json
+### Review Update
+PATCH http://localhost:3000/reviews/2.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
-### Room Delete
-DELETE http://localhost:3000/rooms/1.json
+{
+  "rating": 1.5,
+  "comment": "could be worse"
+}
+
+### Review Delete
+DELETE http://localhost:3000/reviews/2.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
+
