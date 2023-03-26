@@ -1,12 +1,12 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk5Mjc2NTF9.9xFedkH_LcDF0ueA69-Kxolb8hAju_zu5UrWPZ9fRMo
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2Nzk5Mjg4ODB9.HSfON7PDEV7IktX1Y1vS73AjT22VvTHJCYYefRjKloc
 
 ### User Create
 POST http://localhost:3000/users.json 
 Content-Type: application/json
 
 {
-  "name": "Aakash",
-  "email": "aakash@test.com",
+  "name": "Kathleen",
+  "email": "kathleen@test.com",
   "password": "password",
   "image": "user_image.jpg"
 }
@@ -16,18 +16,18 @@ POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-  "email": "aakash@test.com",
+  "email": "kathleen@test.com",
   "password": "password"
 }
 
 ### Room Index
-GET http://localhost:3000/rooms
+GET http://localhost:3000/rooms.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 
 ### Room Show
-GET http://localhost:3000/rooms/1.json
+GET http://localhost:3000/rooms/5.json
 Content-Type: application/json
 
 ### Room Create
@@ -36,11 +36,10 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "user_id": 1,
-  "address": "14 Test Rd.",
+  "address": "16 Test Rd.",
   "city": "Your City",
   "state": "Your State",
-  "price": 200.00,
+  "price": 400.00,
   "description": "King Suite",
   "home_type": "single family",
   "room_type": "1 King Bed",
@@ -50,10 +49,39 @@ Authorization: Bearer {{jwt}}
 }
 
 ### Room Update
-PATCH http://localhost:3000/rooms/2.json
+PATCH http://localhost:3000/rooms/5.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
+{
+  "price": 450
+}
+
 ### Room Delete
-DELETE http://localhost:3000/rooms/1.json
+DELETE http://localhost:3000/rooms/5.json
+
+### Create a Reservation
+POST http://localhost:3000/reservations.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "room_id":1,
+  "start_date":20230120,
+  "end_date":20230210
+}
+
+### Reservation Delete
+DELETE http://localhost:3000/reservations/2.json
+Authorization: Bearer {{jwt}}
+
+### Reservations Index
+GET http://localhost:3000/reservations.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Show one reservation
+GET http://localhost:3000/reservations/2.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
